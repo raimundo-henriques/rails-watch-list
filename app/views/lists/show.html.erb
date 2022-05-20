@@ -1,0 +1,15 @@
+<h1>Lists#show</h1>
+<p>Find me in app/views/lists/show.html.erb</p>
+<h2><%= @list.name %></h2>
+<%= link_to "Add movie",  new_list_bookmark_path(@list), class: 'btn btn-warning' %>
+<%= link_to "Back", lists_path, class: 'btn btn-warning' %>
+
+
+<ul style="list-style: none">
+  <% @list.movies.each do |movie| %>
+  <li><%= image_tag movie.poster_url, alt: "Poster #{movie.title}", width: 500 %></li>
+  <li style="font-weight: bold"><%=  movie.title %></li>
+  <li><%= movie.overview %></li>
+  <li><%= link_to "Delete movie", bookmark_path, method: :delete, data: { confirm: 'Are you sure?'}%></li>
+  <% end %>
+</ul>
