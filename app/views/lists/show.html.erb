@@ -10,6 +10,11 @@
   <li><%= image_tag movie.poster_url, alt: "Poster #{movie.title}", width: 500 %></li>
   <li style="font-weight: bold"><%=  movie.title %></li>
   <li><%= movie.overview %></li>
-  <li><%= link_to "Delete movie", bookmark_path, method: :delete, data: { confirm: 'Are you sure?'}%></li>
+  <% movie.bookmarks.each do |bookmark| %>
+    <%# <% if bookmark.movie_id == movie.id %>
+    <%=  %>
+  <% end %>
+
+  <li><%= link_to "Delete movie", bookmark_path(movie.id), method: :delete, data: { confirm: 'Are you sure?' }%></li>
   <% end %>
 </ul>
