@@ -6,15 +6,13 @@
 
 
 <ul style="list-style: none">
-  <% @list.movies.each do |movie| %>
-  <li><%= image_tag movie.poster_url, alt: "Poster #{movie.title}", width: 500 %></li>
-  <li style="font-weight: bold"><%=  movie.title %></li>
-  <li><%= movie.overview %></li>
-  <% movie.bookmarks.each do |bookmark| %>
-    <%# <% if bookmark.movie_id == movie.id %>
-    <%=  %>
-  <% end %>
+  <% @list.bookmarks.each do |bookmark| %>
+  <li><%= image_tag bookmark.movie.poster_url, alt: "Poster #{bookmark.movie.title}", width: 500 %></li>
+  <li style="font-weight: bold"><%=  bookmark.movie.title %></li>
+  <li><%= bookmark.movie.overview %></li>
+  <li><%= bookmark.comment %></li>
 
-  <li><%= link_to "Delete movie", bookmark_path(movie.id), method: :delete, data: { confirm: 'Are you sure?' }%></li>
+
+  <li><%= link_to "Delete movie", bookmark_path(bookmark), method: :delete, data: { confirm: 'Are you sure?' }%></li>
   <% end %>
 </ul>
