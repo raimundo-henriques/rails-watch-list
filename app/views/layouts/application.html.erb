@@ -10,7 +10,13 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body style="margin-top: 30px">
-    <%= yield %>
+  <body>
+    <nav class="navbar-lewagon">
+      <div class="container-fluid justify-content-start p-3">
+        <%= link_to "All lists", lists_path, class: "btn btn-primary" %>
+        <%= link_to "New List", new_list_path, class: "btn btn-primary" %>
+      </div>
+    </nav>
+      <%= yield %>
   </body>
 </html>
