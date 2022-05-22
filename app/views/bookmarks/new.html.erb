@@ -1,7 +1,12 @@
-<h1>Bookmarks#new</h1>
-<p>Find me in app/views/bookmarks/new.html.erb</p>
-<%= simple_form_for [@list, @bookmark] do |f|%>
-<%= f.association :movie %>
-<%= f.input :comment %>
-<%= f.button :submit, class: 'btn btn-primary'%>
-<% end %>
+<div class="container shadow-sm p-3 bg-white rounded p-5">
+<div class="d-flex justify-content-between align-items-center">
+  <h1 class="text-primary">NEW MOVIE</h1>
+  <%= link_to "BACK", list_path(@list), class: 'btn btn-secondary' %>
+</div>
+  <%= simple_form_for [@list, @bookmark] do |f|%>
+  <%= f.association :movie, input_html: { data: { controller: 'select2' } } %>
+  <%= f.input :comment %>
+  <%= f.button :submit, 'ADD MOVIE', class: 'btn btn-primary text-white'%>
+  <% end %>
+
+</div>

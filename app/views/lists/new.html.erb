@@ -1,7 +1,10 @@
-<h1>Lists#new</h1>
-<p>Find me in app/views/lists/new.html.erb</p>
-<%= simple_form_for @list do |f|%>
-<%= f.input :name%>
-<%# <%= f.association :movies %>
-<%= f.button :submit, class: 'btn btn-primary'%>
-<% end %>
+<div class="container shadow-sm p-3 bg-white rounded p-5">
+  <div class="d-flex justify-content-between align-items-center">
+    <h1 class="text-primary">NEW LIST</h1>
+    <%= link_to "BACK", lists_path, class: 'btn btn-secondary' %>
+  </div>
+    <%= simple_form_for @list do |f|%>
+    <%= f.input :name%>
+    <%= f.button :submit, 'ADD LIST', class: 'btn btn-primary text-white'%>
+    <% end %>
+</div>

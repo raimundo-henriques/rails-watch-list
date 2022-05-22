@@ -1,19 +1,23 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?ixlib=rb-1.2.1&raw_url=true&q=80&fm=jpg&crop=entropy&cs=tinysrgb&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470')">
-  <h1>My Movie Lists</h1>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('https://f530a4e9e8.nxcli.net/wp-content/uploads/2020/06/Margot-Robbie-Feet-4650975.jpg')">
+  <div class="text-center mt-4">
+    <h1 class="text-primary">MOVIE LISTS</h1>
+    <p class="text-white">Make lists. Watch movies. Have fun.</p>
+  </div>
 </div>
 
-<div class="container">
-  <div class="cards" style="text-align: center">
-    <%= link_to "Add New List", new_list_path, class: "btn btn-primary" %>
-    <% @lists.each do |list| %>
-      <ul>
-        <li>
-          <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1606579328130-6b6632fb1514?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687')">
-            <%= link_to list.name, list_path(list) %>
-          </div>
-        </li>
-      </ul>
-      <% end %>
+<div class="container shadow-sm p-3 bg-white rounded text-center">
+  <div>
+    <%= link_to "NEW LIST", new_list_path, class: "btn btn-primary text-white mt-3" %>
   </div>
-
+  <div class="cards">
+      <div class="row my-4 d-flex flex-wrap">
+        <% @lists.each do |list| %>
+          <div class="col-sm-12 col-md-4">
+            <div class="card-category m-3 posters">
+              <%= link_to list.name.upcase, list_path(list), class: 'text-decoration-none margin: 10px text-white' %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+  </div>
 </div>
